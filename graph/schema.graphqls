@@ -1,0 +1,34 @@
+# https://gqlgen.com/getting-started/
+
+type Habit {
+    id: ID!
+    title: String!
+    description: String
+    createdAt: String!
+}
+
+type Query {
+    habit(id: ID!): Habit!
+    habits: [Habit!]!
+}
+
+input CreateHabitInput {
+  title: String!
+  description: String
+}
+
+input UpdateHabitInput {
+  id: ID!
+  title: String
+  description: String
+}
+
+input DeleteHabitInput {
+  id: ID!
+}
+
+type Mutation {
+  createHabit(input: CreateHabitInput!): Habit!
+  updateHabit(input: UpdateHabitInput!): Habit!
+  deleteHabit(input: DeleteHabitInput!): Habit!
+}
